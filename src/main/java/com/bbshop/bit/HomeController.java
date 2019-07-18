@@ -21,6 +21,8 @@ public class HomeController {
 
 		System.out.println("test");
 		
+		System.out.println("팀 클론 고침");
+		
 		return "shoppingMall/main/index";
 	}
 
