@@ -19,8 +19,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 		
-		System.out.println("test 190719_학원");
-		
 		return "shoppingMall/main/index";
 	}
 
