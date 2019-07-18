@@ -19,7 +19,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 		
-		System.out.println("work in the test2 branch");
+		System.out.println("work in the master branch");
 		
 		return "shoppingMall/main/index";
 	}
