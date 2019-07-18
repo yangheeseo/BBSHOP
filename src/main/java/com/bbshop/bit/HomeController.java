@@ -19,8 +19,6 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 		
-		System.out.println("test in home 1st");
-		
 		return "shoppingMall/main/index";
 	}
 
