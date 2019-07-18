@@ -19,6 +19,8 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index() {
 		
+		System.out.println("work in the test branch");
+		
 		return "shoppingMall/main/index";
 	}
 
