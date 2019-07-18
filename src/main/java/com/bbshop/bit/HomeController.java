@@ -18,6 +18,9 @@ public class HomeController {
 	// index - 동영상 및 로그인
 	@RequestMapping("/")
 	public String index() {
+
+		System.out.println("test");
+		
 		return "shoppingMall/main/index";
 	}
 
