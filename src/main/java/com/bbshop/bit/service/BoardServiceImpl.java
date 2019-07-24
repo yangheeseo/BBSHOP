@@ -3,6 +3,7 @@ package com.bbshop.bit.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+
 import com.bbshop.bit.domain.BoardVO;
 import com.bbshop.bit.mapper.BoardMapper;
 
@@ -15,7 +16,9 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;
 	
 	@Override
-	public void register(BoardVO board) {  }
+	public void register(BoardVO board) {
+		
+	}
 
 	@Override
 	public BoardVO get(Long bno) {

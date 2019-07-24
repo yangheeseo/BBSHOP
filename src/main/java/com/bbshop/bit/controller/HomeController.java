@@ -1,4 +1,4 @@
-package com.bbshop.bit;
+package com.bbshop.bit.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -20,7 +20,7 @@ public class HomeController {
 
 		System.out.println("테스트!!!");
 		
-		return "shoppingMall/main/index";
+		return "shoppingMall/mypage/withdraw";
 	}
 
 	/* 쇼핑몰 */
