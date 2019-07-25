@@ -3,15 +3,16 @@ package com.bbshop.bit.service;
 import java.util.List;
 
 import com.bbshop.bit.domain.FAQVO;
+import com.bbshop.bit.domain.OnetoOneVO;
 
 public interface OnetoOneService {
-	public void register(FAQVO board);
+	public void OnetoOne_register(OnetoOneVO board);
 	
-	public FAQVO get(Long bno);
+	public OnetoOneVO OnetoOne_get(Long bno);
 	
-	public boolean modify(FAQVO board);
+	public boolean OnetoOne_modify(OnetoOneVO board);
 	
-	public boolean remove(Long bno);
+	public boolean OnetoOne_remove(Long bno);	
 	
-	public List<FAQVO> getList();
+	public List<OnetoOneVO> OnetoOne_getList();
 }

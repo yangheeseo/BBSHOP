@@ -9,13 +9,8 @@ import com.bbshop.bit.domain.FAQVO;
 public interface FAQMapper {
 	
 	//@Select("select * from tbl_board where bno > 0")
-	public List<FAQVO> getList();
+	public List<FAQVO> FAQ_getList();
 	
-	public void insert(FAQVO board);
+	public FAQVO FAQ_read(Long bno);
 	
-	public void insertSelectKey(FAQVO board);
-	
-	public FAQVO read(Long bno);
-	
-	public int update(FAQVO board);
 }

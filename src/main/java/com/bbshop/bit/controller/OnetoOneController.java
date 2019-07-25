@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bbshop.bit.domain.FAQVO;
-import com.bbshop.bit.service.FAQService;
+import com.bbshop.bit.domain.OnetoOneVO;
+import com.bbshop.bit.service.OnetoOneService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -18,21 +19,21 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/board/*")
 @AllArgsConstructor
-public class OnetoOneController2 {
-	private FAQService service;
+public class OnetoOneController {
+	private OnetoOneService service;
 
 	@GetMapping("/list")
 	public void list(Model model) {
 
 		log.info("list");
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.OnetoOne_getList());
 	}
 
 	@PostMapping("/register")
-	public String register(FAQVO board, RedirectAttributes rttr) {
+	public String register(OnetoOneVO board, RedirectAttributes rttr) {
 		log.info("register: " + board);
-		service.register(board);
-		rttr.addFlashAttribute("result", board.getBno());
+		service.OnetoOne_register(board);
+		rttr.addFlashAttribute("result", board.getONE_ONE_NUM());
 		return "redirect:/board/list";
 	}
 
@@ -40,14 +41,14 @@ public class OnetoOneController2 {
 	public void get(@RequestParam("bno") Long bno, Model model) {
 
 		log.info("/get");
-		model.addAttribute("board", service.get(bno));
+		model.addAttribute("board", service.OnetoOne_get(bno));
 	}
 
 	@PostMapping("/modify")
-	public String modify(FAQVO board, RedirectAttributes rttr) {
+	public String modify(OnetoOneVO board, RedirectAttributes rttr) {
 		log.info("modify:" + board);
 	
-	if (service.modify(board)) {
+	if (service.OnetoOne_modify(board)) {
 		rttr.addFlashAttribute("result", "success");
 	}
 		return "redirect:/board/list";
@@ -55,7 +56,7 @@ public class OnetoOneController2 {
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
 		log.info("remove..." + bno);
-		if(service.remove(bno)) {
+		if(service.OnetoOne_remove(bno)) {
 			rttr.addFlashAttribute("result", "success");
 		}
 		return "redirect:/board/list";

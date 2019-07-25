@@ -5,13 +5,8 @@ import java.util.List;
 import com.bbshop.bit.domain.FAQVO;
 
 public interface FAQService {
-	public void register(FAQVO board);
 	
-	public FAQVO get(Long bno);
+	public FAQVO FAQ_get(Long bno);
 	
-	public boolean modify(FAQVO board);
-	
-	public boolean remove(Long bno);
-	
-	public List<FAQVO> getList();
+	public List<FAQVO> FAQ_getList();
 }

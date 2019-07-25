@@ -4,43 +4,58 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<mapper namespace="com.bbshop.bit.mapper.BoardMapper">
 	
-	<select id="getList" resultType="com.bbshop.bit.domain.BoardVO">
+	<select id="FAQ_getList" resultType="com.bbshop.bit.domain.FAQVO">
 	<![CDATA[
-	select * from tbl_board where bno > 0 ]]>
+	select * from SERVICE_FAQ where bno > 0 ]]>
 	</select>
 	
-	<select id="read" resultType="com.bbshop.bit.domain.BoardVO">
-	select * from tbl_board where bno = #{bno}	
+	<select id="OnetoOne_getList" resultType="com.bbshop.bit.domain.OnetoOneVO">
+	<![CDATA[
+	select * from ONETOONE where bno > 0 ]]>
 	</select>
 	
-	<delete id="delete">
-		delete tbl_board where bno = #{bno}
+
+	<!-- <insert id="OnetoOne_insert">
+		insert into ONETOONE (ONE_ONE_NUM,ONE_CATEGORY,ONE_TITLE,ONE_CONTENTS,ONE_FILE,REGDATE,USER_KEY,SEQ,LEV,DEP)
+		values (#{ONE_ONE_NUM}, #{ONE_CATEGORY}, #{ONE_TITLE}, #{ONE_CONTENTS}, #{ONE_FILE}, #{REGDATE}, #{USER_KEY}, #{SEQ}, #{LEV}, #{DEP})
+	</insert>  -->
+	
+	<insert id="OnetoOne_insertSelectKey">
+	
+		<selectKey keyProperty="bno" order="BEFORE"
+			resultType="long">
+			select seq_board.nextval from dual	<!--  시퀀스생성-->
+		</selectKey>
+	
+		insert into ONETOONE (ONE_ONE_NUM,ONE_CATEGORY,ONE_TITLE,ONE_CONTENTS,ONE_FILE,REGDATE,USER_KEY,SEQ,LEV,DEP)
+		values (#{ONE_ONE_NUM}, #{ONE_CATEGORY}, #{ONE_TITLE}, #{ONE_CONTENTS}, #{ONE_FILE}, #{REGDATE}, #{USER_KEY}, #{SEQ}, #{LEV}, #{DEP})
+	</insert>
+	
+	<select id="FAQ_read" resultType="com.bbshop.bit.domain.FAQVO"> 
+	select * from SERVICE_FAQ where bno = #{bno}	
+	</select>
+	
+		<select id="OnetoOne_read" resultType="com.bbshop.bit.domain.OnetoOneVO"> 
+	select * from ONETOONE where bno = #{bno}	
+	</select>
+	
+	<delete id="OnetoOne_delete"> 
+		delete ONETOONE where bno = #{bno}
 	</delete>
 	
-	<insert id="insert">
-		insert into tbl_board (bno,title,content,writer)
-		values (seq_board.nextval, #{title}, #{content}, #{writer})
-	</insert>
-	
-	<insert id="insertSelectKey">
-	
-	<selectKey keyProperty="bno" order="BEFORE"
-		resultType="long">
-		select seq_board.nextval from dual	
-	</selectKey>
-	
-	insert into tbl_board (bno,title,content,writer)
-	value (#{bno}, #{title}, #{content}, #{writer})
-	</insert>
-	
-	<update id="update">
-		update tbl_board
-		set title= #{title},
-		content=#{content},
-		writer = #{writer},
-		updateDate = sysdate
-		where bno = #{bno}
+	<update id="OnetoOne_update"> 
+		UPDATE ONETOONE
+		SET 
+			ONE_ONE_NUM= #{ONE_ONE_NUM},
+			ONE_CATEGORY= #{ONE_CATEGORY},
+			ONE_TITLE = #{ONE_TITLE},
+			ONE_CONTENTS = #{ONE_CONTENTS},
+			ONE_FILE = #{ONE_FILE},
+			USER_KEY = #{USER_KEY},
+			SEQ = #{SEQ}
+			LEV = #{LEV}
+			DEP = #{DEP}
+		WHERE bno = #{bno}
 	</update>
 	</mapper>
 	
-	<!-- 여기 DB에 맞춰서 수정 -->
