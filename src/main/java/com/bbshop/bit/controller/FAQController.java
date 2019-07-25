@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.bbshop.bit.domain.BoardVO;
-import com.bbshop.bit.service.BoardService;
+import com.bbshop.bit.domain.FAQVO;
+import com.bbshop.bit.service.FAQService;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -18,8 +18,8 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/board/*")
 @AllArgsConstructor
-public class BoardController {
-	private BoardService service;
+public class FAQController {
+	private FAQService service;
 
 	@GetMapping("/list")
 	public void list(Model model) {
@@ -29,7 +29,7 @@ public class BoardController {
 	}
 
 	@PostMapping("/register")
-	public String register(BoardVO board, RedirectAttributes rttr) {
+	public String register(FAQVO board, RedirectAttributes rttr) {
 		log.info("register: " + board);
 		service.register(board);
 		rttr.addFlashAttribute("result", board.getBno());
@@ -44,7 +44,7 @@ public class BoardController {
 	}
 
 	@PostMapping("/modify")
-	public String modify(BoardVO board, RedirectAttributes rttr) {
+	public String modify(FAQVO board, RedirectAttributes rttr) {
 		log.info("modify:" + board);
 	
 	if (service.modify(board)) {

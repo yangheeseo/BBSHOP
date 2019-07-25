@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.bbshop.bit.domain.BoardVO;
-import com.bbshop.bit.mapper.BoardMapper;
+import com.bbshop.bit.domain.FAQVO;
+import com.bbshop.bit.mapper.FAQMapper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -14,12 +14,12 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @Service
 @AllArgsConstructor
-public class BoardServiceImpl implements BoardService{
+public class OnetoOneServiceImpl implements FAQService{
 	
-	private BoardMapper mapper;
+	private FAQMapper mapper;
 	
 	@Override
-	public void register(BoardVO board) {
+	public void register(FAQVO board) {
 		log.info("register......" + board);
 		
 		mapper.insertSelectKey(board);
@@ -27,7 +27,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public BoardVO get(Long bno) {
+	public FAQVO get(Long bno) {
 		
 		log.info("get.........." + bno);
 		// TODO Auto-generated method stub
@@ -35,25 +35,25 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public boolean modify(BoardVO board) {
+	public boolean modify(FAQVO board) {
 		
 		log.info("modify....." + board);
 		// TODO Auto-generated method stub
 		return mapper.update(board) == 1;
 	}
 
-	@Override
-	public boolean remove(Long bno) {
-		log.info("remove...." + bno);
-		// TODO Auto-generated method stub
-		return mapper.delete(bno) == 1;
-	}
 
 	@Override
-	public List<BoardVO> getList() {
+	public List<FAQVO> getList() {
 		
 		log.info("getList..........");
 		// TODO Auto-generated method stub
 		return mapper.getList();
+	}
+
+	@Override
+	public boolean remove(Long bno) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
