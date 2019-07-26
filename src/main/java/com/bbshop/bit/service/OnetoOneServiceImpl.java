@@ -2,6 +2,7 @@ package com.bbshop.bit.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bbshop.bit.domain.FAQVO;
@@ -13,10 +14,11 @@ import lombok.extern.log4j.Log4j;
 
 
 @Log4j
-@Service
+@Service("onetooneService")
 @AllArgsConstructor
 public class OnetoOneServiceImpl implements OnetoOneService{
 	
+	@Autowired
 	private OnetoOneMapper mapper;
 
 	@Override //등록
@@ -27,11 +29,11 @@ public class OnetoOneServiceImpl implements OnetoOneService{
 	}
 
 	@Override //글상세
-	public OnetoOneVO OnetoOne_get(Long bno) {
-		log.info("get......." + bno);
+	public OnetoOneVO OnetoOne_get(Long ONE_ONE_NUM) {
+		log.info("get......." + ONE_ONE_NUM);
 		// TODO Auto-generated method stub
 		
-		return mapper.OnetoOne_read(bno);
+		return mapper.OnetoOne_read(ONE_ONE_NUM);
 	}
 
 	@Override //수정
@@ -42,10 +44,10 @@ public class OnetoOneServiceImpl implements OnetoOneService{
 	}
 
 	@Override //삭제
-	public boolean OnetoOne_remove(Long bno) {
-		log.info("remove......" + bno);
+	public boolean OnetoOne_remove(Long ONE_ONE_NUM) {
+		log.info("remove......" + ONE_ONE_NUM);
 		// TODO Auto-generated method stub
-		return mapper.OnetoOne_delete(bno) == 1;
+		return mapper.OnetoOne_delete(ONE_ONE_NUM) == 1;
 	}
 
 	@Override //목록보기

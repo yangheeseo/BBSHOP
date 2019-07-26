@@ -11,9 +11,9 @@ public interface OnetoOneMapper {
 	
 	public void OnetoOne_insertSelectKey(OnetoOneVO board);
 	
-	public OnetoOneVO OnetoOne_read(Long bno);
+	public OnetoOneVO OnetoOne_read(Long ONE_ONE_NUM);
 	
-	public int OnetoOne_delete(Long bno);
+	public int OnetoOne_delete(Long ONE_ONE_NUM);
 	
 	public int OnetoOne_update(OnetoOneVO board);
 }

@@ -2,16 +2,11 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybats.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-	<mapper namespace="com.bbshop.bit.mapper.BoardMapper">
-	
-	<select id="FAQ_getList" resultType="com.bbshop.bit.domain.FAQVO">
-	<![CDATA[
-	select * from SERVICE_FAQ where bno > 0 ]]>
-	</select>
+	<mapper namespace="com.bbshop.bit.mapper.OnetoOneMapper">
 	
 	<select id="OnetoOne_getList" resultType="com.bbshop.bit.domain.OnetoOneVO">
 	<![CDATA[
-	select * from ONETOONE where bno > 0 ]]>
+	select * from ONETOONE where ONE_ONE_NUM > 0 ]]>
 	</select>
 	
 
@@ -31,16 +26,12 @@
 		values (#{ONE_ONE_NUM}, #{ONE_CATEGORY}, #{ONE_TITLE}, #{ONE_CONTENTS}, #{ONE_FILE}, #{REGDATE}, #{USER_KEY}, #{SEQ}, #{LEV}, #{DEP})
 	</insert>
 	
-	<select id="FAQ_read" resultType="com.bbshop.bit.domain.FAQVO"> 
-	select * from SERVICE_FAQ where bno = #{bno}	
-	</select>
-	
 		<select id="OnetoOne_read" resultType="com.bbshop.bit.domain.OnetoOneVO"> 
-	select * from ONETOONE where bno = #{bno}	
+	select * from ONETOONE where ONE_ONE_NUM = #{ONE_ONE_NUM}	
 	</select>
 	
 	<delete id="OnetoOne_delete"> 
-		delete ONETOONE where bno = #{bno}
+		delete ONETOONE where ONE_ONE_NUM = #{ONE_ONE_NUM}
 	</delete>
 	
 	<update id="OnetoOne_update"> 
@@ -55,7 +46,7 @@
 			SEQ = #{SEQ}
 			LEV = #{LEV}
 			DEP = #{DEP}
-		WHERE bno = #{bno}
+		WHERE ONE_ONE_NUM = #{ONE_ONE_NUM}
 	</update>
 	</mapper>
 	

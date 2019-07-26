@@ -1,5 +1,6 @@
 package com.bbshop.bit.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,24 +17,26 @@ import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
-@RequestMapping("/board/*")
 @AllArgsConstructor
 public class FAQController {
-	private FAQService service;
+	
+	@Autowired
+	private FAQService faqservice;
 
-	@GetMapping("/list")
-	public void list(Model model) {
+	@GetMapping("/faq_list.do")
+	public String list(Model model) {
 
-		log.info("list");
-		model.addAttribute("list", service.FAQ_getList());
+		model.addAttribute("list", faqservice.FAQ_getList());
+		
+		return "shoppingMall/customerService/faq";
 	}
 
+	@GetMapping("/faq_get.do")
+	public String get(@RequestParam("FAQ_NUM") Long FAQ_NUM, Model model) {
 
-	@GetMapping("/get")
-	public void get(@RequestParam("bno") Long bno, Model model) {
-
-		log.info("/get");
-		model.addAttribute("board", service.FAQ_get(bno));
+		model.addAttribute("board", 1);
+		
+		return "shoppingMall/customerService/faq_detail";
 	}
 
 	

@@ -2,6 +2,7 @@ package com.bbshop.bit.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bbshop.bit.domain.FAQVO;
@@ -12,23 +13,24 @@ import lombok.extern.log4j.Log4j;
 
 
 @Log4j
-@Service
+@Service("faqservice")
 @AllArgsConstructor
 public class FAQServiceImpl implements FAQService{
 	
-	private FAQMapper mapper;
+	@Autowired
+	private FAQMapper FAQMapper;
 
 	@Override
-	public FAQVO FAQ_get(Long bno) {
-		log.info("get.........." + bno);
+	public FAQVO FAQ_get(Long FAQ_NUM) {
+		log.info("get.........." + FAQ_NUM);
 		// TODO Auto-generated method stub
-		return mapper.FAQ_read(bno);
+		return FAQMapper.FAQ_read(FAQ_NUM);
 	}
 
 	@Override
 	public List<FAQVO> FAQ_getList() {
 		// TODO Auto-generated method stub
 		log.info("getList..........");
-		return mapper.FAQ_getList();
+		return FAQMapper.FAQ_getList();
 	}
 }

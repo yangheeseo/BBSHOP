@@ -20,7 +20,7 @@ public class HomeController {
 
 		System.out.println("테스트!!!");
 		
-		return "shoppingMall/customerService/faq";
+		return "shoppingMall/customerService/one_to_one_list";
 	}
 
 	/* 쇼핑몰 */
