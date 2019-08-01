@@ -45,9 +45,9 @@ a{
 	</section>
 	<!--================End Home Banner Area =================-->
 	<div class="button-group-area mt-40" style="margin-bottom: 30px;">
-		<a href="/faq" class="genric-btn primary e-large"
+		<a href="/faq_list.do" class="genric-btn primary e-large"
 			style="background: #024137; margin-left: 30%; padding: 6px 60px; font-size: 30px; font-weight: bold;">FAQ</a>
-		<a href="/one_to_one_list" class="genric-btn primary e-large"
+		<a href="/onetoonelist.do" class="genric-btn primary e-large"
 			style="background: #024137; margin-left: 21%; padding: 6px 60px; font-size: 30px; font-weight: bold;">1:1문의</a>
 	</div>
 	<div class="container">
@@ -63,110 +63,7 @@ a{
 							<th scope="col" style="width: 10%; font-weight: bold;">조회수</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
-							<td>
-								<h5>6</h5>
-							</td>
-							<td>
-								<h5>1:1 문의</h5>
-							</td>
-							<td>
-								<a href="/one_to_one_list_info">테스트입니다</a>
-							</td>
-							<td>
-								<h5>2019-07-10</h5>
-							</td>
-							<td>
-								<h5>100</h5>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h5>5</h5>
-							</td>
-							<td>
-								<h5>1:1 문의</h5>
-							</td>
-							<td>
-								<a href="/one_to_one_list_info">테스트입니다</a>
-							</td>
-							<td>
-								<h5>2019-07-10</h5>
-							</td>
-							<td>
-								<h5>100</h5>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h5>4</h5>
-							</td>
-							<td>
-								<h5>1:1 문의</h5>
-							</td>
-							<td>
-								<a href="/one_to_one_list_info">테스트입니다</a>
-							</td>
-							<td>
-								<h5>2019-07-10</h5>
-							</td>
-							<td>
-								<h5>100</h5>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h5>3</h5>
-							</td>
-							<td>
-								<h5>1:1 문의</h5>
-							</td>
-							<td>
-								<a href="/one_to_one_list_info">테스트입니다</a>
-							</td>
-							<td>
-								<h5>2019-07-10</h5>
-							</td>
-							<td>
-								<h5>100</h5>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h5>2</h5>
-							</td>
-							<td>
-								<h5>1:1 문의</h5>
-							</td>
-							<td>
-								<a href="/one_to_one_list_info">테스트입니다</a>
-							</td>
-							<td>
-								<h5>2019-07-10</h5>
-							</td>
-							<td>
-								<h5>100</h5>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<h5>1</h5>
-							</td>
-							<td>
-								<h5>1:1 문의</h5>
-							</td>
-							<td>
-								<a href="/one_to_one_list_info">테스트입니다</a>
-							</td>
-							<td>
-								<h5>2019-07-10</h5>
-							</td>
-							<td>
-								<h5>100</h5>
-							</td>
-						</tr>
-					</tbody>
+					
 				</table>
 			</div>
 		</div>
