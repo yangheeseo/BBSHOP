@@ -8,7 +8,7 @@ import com.bbshop.bit.domain.PagingVO;
 
 public interface FAQService {
 	
-	public FAQVO FAQ_get(Long bno);
+	public FAQVO FAQ_get(long bno);
 	
 	public List<FAQVO> FAQ_getList(PagingVO pag);
 	

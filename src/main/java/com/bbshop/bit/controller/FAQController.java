@@ -42,7 +42,7 @@ public class FAQController {
 	}
 
 //	@GetMapping("/faq_get.do")
-//	public String get(@RequestParam("FAQ_NUM") Long FAQ_NUM, Model model) {
+//	public String get(@RequestParam("FAQ_NUM") long FAQ_NUM, Model model) {
 //
 	//	model.addAttribute("board", faqservice.FAQ_get(FAQ_NUM));
 		
@@ -50,7 +50,7 @@ public class FAQController {
 //	}
 
 	@GetMapping("/faq_get.do")
-	public String get(@RequestParam("FAQ_NUM") Long FAQ_NUM, @ModelAttribute("pag") PagingVO pag, Model model) {
+	public String get(@RequestParam("FAQ_NUM") long FAQ_NUM, @ModelAttribute("pag") PagingVO pag, Model model) {
 	
 		model.addAttribute("board", faqservice.FAQ_get(FAQ_NUM));
 		

@@ -140,7 +140,8 @@ $(document).ready(function(){
 														<c:out value="${board.FAQ_NUM}" />
 													</p></td>
 												<td><p class="title" style="margin-right: 10px;">
-														<i class="lnr lnr-user"></i> 유저데이터필요
+														<i class="lnr lnr-user"></i>
+														<c:out value="${board. }"
 													</p></td>
 											</tr>
 										</table>

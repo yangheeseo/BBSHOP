@@ -12,7 +12,9 @@ public interface FAQMapper {
 	
 	public List<FAQVO> getListWithPaging(PagingVO pag); 
 	
-	public FAQVO FAQ_read(Long FAQ_NUM);
+	public FAQVO FAQ_read(long FAQ_NUM);
+	
+	public String getNickName(long USER_KEY);
 	
 	public int getTotalCount(PagingVO pag);
 

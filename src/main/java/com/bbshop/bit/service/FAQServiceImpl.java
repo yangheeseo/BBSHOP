@@ -22,7 +22,7 @@ public class FAQServiceImpl implements FAQService{
 	private FAQMapper FAQMapper;
 
 	@Override
-	public FAQVO FAQ_get(Long FAQ_NUM) {
+	public FAQVO FAQ_get(long FAQ_NUM) {
 		log.info("get.........." + FAQ_NUM);
 		// TODO Auto-generated method stub
 		return FAQMapper.FAQ_read(FAQ_NUM);
