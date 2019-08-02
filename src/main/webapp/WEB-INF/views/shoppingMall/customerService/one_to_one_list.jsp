@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 
-<%@ include file="../include/shopping_header.jsp" %>
+<%@ include file="../include/shopping_header.jsp"%>
 
 <style>
 body {
@@ -22,8 +22,8 @@ body {
 	background: white;
 }
 
-a{
-	color:#777777;
+a {
+	color: #777777;
 }
 </style>
 </head>
@@ -51,55 +51,115 @@ a{
 			style="background: #024137; margin-left: 21%; padding: 6px 60px; font-size: 30px; font-weight: bold;">1:1문의</a>
 	</div>
 	<div class="container">
-		<div class="order_details_table" style="margin-top: 10px">
-			<div class="table-responsive">
-				<table class="table table-hover">
+		<div class="order_details_table" style="margin-top: 10px;">
+			<div class="table-responsive" style="height: 49px">
+				<table class="table">
 					<thead>
-						<tr style="background: #9FC197;">
-							<th scope="col" style="width: 10%; font-weight: bold;">번호</th>
-							<th scope="col" style="width: 15%; font-weight: bold;">카테고리</th>
-							<th scope="col" style="font-weight: bold;">제목</th>
-							<th scope="col" style="width: 15%; font-weight: bold;">날짜</th>
-							<th scope="col" style="width: 10%; font-weight: bold;">조회수</th>
+						<tr style="background: #9FC197; height: 49px;">
+							<th scope="col"
+								style="width: 15%; font-weight: bold; text-align: center; height: 49px; padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">번호</th>
+							<th scope="col"
+								style="width: 15%; font-weight: bold; text-align: center; height: 49px; padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">카테고리</th>
+							<th scope="col"
+								style="width: 40%; font-weight: bold; text-align: center; height: 49px; padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">제목</th>
+							<th scope="col"
+								style="width: 15%; font-weight: bold; text-align: center; height: 49px; padding-bottom: 0px; padding-top: 0px; vertical-align: middle;">날짜</th>
 						</tr>
 					</thead>
 					
+					<c:forEach items="${list}" var="OnetoOne">
+						<tr>
+							<td><c:out value="${OnetoOne.ONE_ONE_NUM}" /></td>
+							<td><c:out value="${OnetoOne.ONE_ONE_CATEGORY}" /></td>
+							<td><a class='move' href='<c:out value="${OnetoOne.ONE_TITLE}"/>'>
+									<c:out value="${OnetoOne.CONTENTS}" />
+							</a></td>
+							<td><c:out value="${OnetoOne.SYSDATE}" /></td>
+						</tr>
+
+					</c:forEach>
 				</table>
 			</div>
 		</div>
 	</div>
 	<table class="paging_area"
-		style="width: 1100px; margin-left: auto; margin-right: auto; margin-top: 40px;">
+		style="width: 1200px; margin-left: auto; margin-right: auto;">
 		<tr>
 			<td><a href="#writing_modal" class="genric-btn default radius"
-				data-toggle="modal" style="font-weight: bold;font-size:17px;">글쓰기</a></td>
+				data-toggle="modal" style="font-weight: bold; font-size: 17px;">글쓰기</a></td>
 			<td><nav class="cat_page mx-auto"
 					aria-label="Page navigation example">
 					<ul class="pagination" style="float: right;">
-						<li class="page-item"><a class="page-link" href="#"> <i
-								class="fa fa-chevron-left" aria-hidden="true"></i>
-						</a></li>
-						<li class="page-item active"><a class="page-link" href="#">01</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">02</a></li>
-						<li class="page-item"><a class="page-link" href="#">03</a></li>
-						<li class="page-item blank"><a class="page-link" href="#">...</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">09</a></li>
-						<li class="page-item"><a class="page-link" href="#"> <i
-								class="fa fa-chevron-right" aria-hidden="true"></i>
-						</a></li>
+
+						<c:if test="${pageMaker.prev}">
+							<li class="page-item"><a class="page-link"
+								href="${pageMaker.startPage -1}"> <i
+									class="fa fa-chevron-left" aria-hidden="true"></i>
+							</a></li>
+						</c:if>
+
+						<c:forEach var="num" begin="${pageMaker.startPage}"
+							end="${pageMaker.endPage}">
+							<li class="page-item ${pageMaker.pag.pageNum == num ? "active":""} ">
+								<a class="page-link" href="${num}">${num}</a>
+							</li>
+						</c:forEach>
+
+						<c:if test="${pageMaker.next}">
+							<li class="page-item"><a class="page-link"
+								href="${pageMaker.endPage +1 }"> <i
+									class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+						</c:if>
+
 					</ul>
-				</nav></td>
-			<td class="search_area"><div class="input-group"
-					style="width: 200px; float: right;">
-					<input type="text" class="form-control" placeholder="글 검색">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">
-							<i class="lnr lnr-magnifier"></i>
-						</button>
-					</span>
-				</div></td>
+				</nav>
+				
+				<form id='actionForm' action="/onetoonelist.do" method='get'>
+					<input type='hidden' name='pageNum'value='${pageMaker.pag.pageNum}'>
+					 <input type='hidden' name='amount' value='${pageMaker.pag.amount}'>
+					 <input type='hidden' name='type' value='<c:out value="${pageMaker.pag.type}"/>'>
+					 <input type='hidden' name='keyword' value='<c:out value="${pageMaker.pag.keyword}"/>'>
+				</form></td>
+		
+			<td class="search_area" style="float: right;">
+
+				<div class="input-group" style="width: 80%; float: right;">
+
+					<form id='searchForm' action="/faq_list.do" method='get'
+						style="width: 400px; text-align: right">
+
+						<select name='type' style="width: 110px;">
+
+							<option value=""
+								<c:out value="${pageMaker.pag.type == null?'selected':''}" />>--</option>
+
+							<option value="T"
+								<c:out value="${pageMaker.pag.type eq 'T'?'selected':''}" />>제목</option>
+
+							<option value="C"
+								<c:out value="${pageMaker.pag.type eq 'C'?'selected':''}" />>내용</option>
+
+							<option value="TC"
+								<c:out value="${pageMaker.pag.type eq 'TC'?'selected':''}" />>제목
+								or 내용</option>
+
+						</select>
+						
+						<input type='hidden' name='pageNum' value='<c:out value="${pageMaker.pag.pageNum}"/>' />
+						
+						<input type='hidden' name='amount' value='<c:out value="${pageMaker.pag.amount}"/>' />
+						
+						<input type="text" name='keyword' class="form-control" placeholder="글 검색" style="display: inline; 
+						width: 148px; padding-top: 0; padding-bottom: 5px" value='<c:out value="${pageMaker.pag.keyword}"/>' />
+						
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button" style="width: 50px; display: inline;">
+								<i class="lnr lnr-magnifier"></i>
+							</button>
+						</span>
+					</form>
+				</div>
+			</td>
 		</tr>
 	</table>
 
@@ -108,7 +168,7 @@ a{
 	<div class="modal fade" id="writing_modal" tabindex="-1" role="dialog"
 		aria-labelledby="writing_modal_label" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content" style="width:30%;margin:8% auto;">
+			<div class="modal-content" style="width: 30%; margin: 8% auto;">
 				<div class="modal-header">
 					<h2 class="text-black" style="font-weight: bold">글쓰기</h2>
 					<span class="close" data-dismiss="modal">&times;</span>
@@ -164,4 +224,4 @@ a{
 		</div>
 	</div>
 
-<%@ include file="../include/shopping_footer.jsp" %>
+	<%@ include file="../include/shopping_footer.jsp"%>

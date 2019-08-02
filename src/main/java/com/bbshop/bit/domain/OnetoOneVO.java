@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class OnetoOneVO {
 	
-	private int ONE_ONE_NUM;
+	private Long ONE_ONE_NUM;
 	private String ONE_CATEGORY;
 	private String ONE_TITLE;
 	private String ONE_CONTENTS;

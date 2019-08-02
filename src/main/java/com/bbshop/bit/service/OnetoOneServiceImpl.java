@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.bbshop.bit.domain.FAQVO;
 import com.bbshop.bit.domain.OnetoOneVO;
+import com.bbshop.bit.domain.PagingVO;
 import com.bbshop.bit.mapper.OnetoOneMapper;
 
 import lombok.AllArgsConstructor;
@@ -54,6 +55,12 @@ public class OnetoOneServiceImpl implements OnetoOneService{
 	public List<OnetoOneVO> OnetoOne_getList() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public int getTotal(PagingVO pag) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	
