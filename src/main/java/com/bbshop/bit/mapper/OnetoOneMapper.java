@@ -12,7 +12,9 @@ public interface OnetoOneMapper {
 	
 	public List<OnetoOneVO> getListWithPaging(PagingVO pag); 
 	
-	public void OnetoOne_insertSelectKey(OnetoOneVO board);
+	public void insert(OnetoOneVO board);
+	
+	public Integer OnetoOne_insertSelectKey(OnetoOneVO board);
 	
 	public OnetoOneVO OnetoOne_read(Long ONE_ONE_NUM);
 	

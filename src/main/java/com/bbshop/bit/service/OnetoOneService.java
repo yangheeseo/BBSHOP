@@ -14,7 +14,7 @@ public interface OnetoOneService {
 	
 	public boolean OnetoOne_remove(Long bno);	
 	
-	public List<OnetoOneVO> OnetoOne_getList();
+	public List<OnetoOneVO> OnetoOne_getList(PagingVO pag);
 	
 	public int getTotal(PagingVO pag);
 }

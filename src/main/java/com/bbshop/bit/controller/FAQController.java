@@ -1,6 +1,6 @@
 package com.bbshop.bit.controller;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.bbshop.bit.domain.FAQVO;
 import com.bbshop.bit.domain.PageDTO;
 import com.bbshop.bit.domain.PagingVO;
 import com.bbshop.bit.service.FAQService;
@@ -24,9 +23,17 @@ public class FAQController {
 	
 	@Autowired
 	private FAQService faqservice;
+	
+	@Autowired
+	private HttpSession session;
+
 
 	@GetMapping("/faq_list.do")
 	public String list(PagingVO pag, Model model) {
+		
+		session.setAttribute("nickname", "슈퍼맨");
+		
+		String nickname = (String)session.getAttribute("nickname");
 		
 		log.info("list: " + pag);
 		model.addAttribute("list", faqservice.FAQ_getList(pag));
@@ -37,6 +44,7 @@ public class FAQController {
 		log.info("total: " + total);
 		
 		model.addAttribute("pageMaker", new PageDTO(pag, total));
+		model.addAttribute("nickname", nickname);
 		
 		return "shoppingMall/customerService/faq";
 	}

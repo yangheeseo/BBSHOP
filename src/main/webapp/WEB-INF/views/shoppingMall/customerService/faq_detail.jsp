@@ -141,7 +141,7 @@ $(document).ready(function(){
 													</p></td>
 												<td><p class="title" style="margin-right: 10px;">
 														<i class="lnr lnr-user"></i>
-														<c:out value="${board. }"
+														<c:out value="${nickname}" />
 													</p></td>
 											</tr>
 										</table>
@@ -158,7 +158,7 @@ $(document).ready(function(){
 
 						</div>
 					</div>
-		 		<form id='openForm' action="/faq_get.do" method="post">
+		 		<form id='operForm' action="/faq_get.do" method="post">
 						<input type='hidden' id='FAQ_BNO' name='FAQ_BNO' value='<c:out value="${board.FAQ_NUM}"/>'>
 						<input type='hidden' name='pageNum' value='<c:out value="${pag.pageNum}"/>'>
 						<input type='hidden' name='amount' value='<c:out value="${pag.amount}"/>'>

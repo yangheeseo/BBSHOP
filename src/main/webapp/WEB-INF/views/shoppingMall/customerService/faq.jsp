@@ -180,8 +180,8 @@ $(document).ready(function(){
                <ul class="pagination" style="float: right;">
 
           	  <c:if test="${pageMaker.prev}">	
-              <li class="page-item"><a class="page-link" href="${pageMaker.startPage -1}"> <i
-                        class="fa fa-chevron-left" aria-hidden="true"></i>
+              <li class="page-item"><a class="page-link" href="${pageMaker.startPage -1}">
+              <i class="fa fa-chevron-left" aria-hidden="true"></i>
                   </a></li>
               </c:if>
                  

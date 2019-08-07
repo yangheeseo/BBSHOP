@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bbshop.bit.domain.FAQVO;
 import com.bbshop.bit.domain.OnetoOneVO;
 import com.bbshop.bit.domain.PagingVO;
 import com.bbshop.bit.mapper.OnetoOneMapper;
@@ -46,21 +45,22 @@ public class OnetoOneServiceImpl implements OnetoOneService{
 
 	@Override //삭제
 	public boolean OnetoOne_remove(Long ONE_ONE_NUM) {
+		
 		log.info("remove......" + ONE_ONE_NUM);
 		// TODO Auto-generated method stub
 		return mapper.OnetoOne_delete(ONE_ONE_NUM) == 1;
 	}
 
 	@Override //목록보기
-	public List<OnetoOneVO> OnetoOne_getList() {
+	public List<OnetoOneVO> OnetoOne_getList(PagingVO pag) {
 		// TODO Auto-generated method stub
-		return null;
+		return mapper.getListWithPaging(pag);
 	}
 
 	@Override
 	public int getTotal(PagingVO pag) {
 		// TODO Auto-generated method stub
-		return 0;
+		return mapper.getTotalCount(pag);
 	}
 
 	
